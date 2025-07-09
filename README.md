@@ -1,33 +1,43 @@
-# 📦 Pindeep SDKs
-
-Official SDKs for using [pindeep.link](https://pindeep.link) — the smart, cross-platform deep linking system.
-
-## 📁 SDKs Included
-
-- `pindeep_flutter/` – Dart/Flutter SDK
-- `pindeep_android/` – Android (Java) SDK
-- `PindeepSDK/` – iOS (Swift) SDK
+Certainly! Here's a properly structured and professional version of your Pindeep SDK documentation, preserving all the details and improving clarity, formatting, and consistency:
 
 ---
 
-## 🔐 Get Started
+# 📦 Pindeep SDKs
 
-> 📌 First, sign up at [https://pindeep.link](https://pindeep.link) and get your API Key from your dashboard.
+Official SDKs for integrating with [**pindeep.link**](https://pindeep.link) — a smart, cross-platform deep linking system.
+
+---
+
+## 📁 SDKs Included
+
+* **`pindeep_flutter/`** – Flutter (Dart) SDK
+* **`pindeep_android/`** – Android SDK (Java)
+* **`PindeepSDK/`** – iOS SDK (Swift)
+
+---
+
+## 🔐 Getting Started
+
+1. **Sign up** at [pindeep.link](https://pindeep.link).
+2. **Get your API Key** from your dashboard after signing in.
 
 ---
 
 ## 🐦 Flutter SDK
 
-### ✅ Install
-Add to `pubspec.yaml`:
+### ✅ Installation
+
+Add the SDK to your `pubspec.yaml`:
+
 ```yaml
 dependencies:
   pindeep_flutter:
     path: ./pindeep_flutter
+```
 
+### 🚀 Usage
 
-✅ Usage
-
+```dart
 import 'package:pindeep_flutter/pindeep_flutter.dart';
 
 final manager = PindeepManager(apiKey: "your_api_key");
@@ -40,20 +50,25 @@ final link = await manager.createLink(DeepLinkData(
   oneTimeUse: false,
 ));
 
-print(link); // => short deep link
+print(link); // Outputs the short deep link
+```
 
-____________________________________________________________________________________
+---
 
-## 🤖 Android SDK
-✅ Setup
-Add pindeep_android/ as a module in your Android project.
+## 🤖 Android SDK (Java)
 
-Add implementation 'com.squareup.okhttp3:okhttp:4.10.0' to your app's build.gradle.
+### ✅ Setup
 
-✅ Usage
-java
-Copy
-Edit
+1. Add the `pindeep_android/` module to your Android project.
+2. Add the following dependency to your `build.gradle`:
+
+```gradle
+implementation 'com.squareup.okhttp3:okhttp:4.10.0'
+```
+
+### 🚀 Usage
+
+```java
 PindeepClient client = new PindeepClient("your_api_key", "https://pindeep.link/api");
 
 JSONObject linkData = new JSONObject();
@@ -73,11 +88,15 @@ client.createLink(linkData, new Callback() {
     e.printStackTrace();
   }
 });
-____________________________________________________________________________________
+```
+
+---
 
 ## 🍎 iOS SDK (Swift)
-✅ Usage
 
+### 🚀 Usage
+
+```swift
 let client = PindeepClient(apiKey: "your_api_key")
 
 let data: [String: Any] = [
@@ -94,20 +113,37 @@ client.createLink(data: data) { result in
         print("Error: \(error)")
     }
 }
-📊 API Endpoints Reference
-Endpoint	Description
-/api/create.php	Create a short link
-/api/stats.php?code=XYZ	View stats for a link
-/api/update.php	Update a link
-/api/delete.php	Delete a link
-/api/verify-key.php	Verify your API key
-/api/deferred.php	Handle deferred deep linking
+```
 
-📎 Example Link
-A generated link will look like:
+---
 
+## 📊 API Endpoints
+
+| Endpoint                  | Description                  |
+| ------------------------- | ---------------------------- |
+| `/api/create.php`         | Create a short link          |
+| `/api/stats.php?code=XYZ` | View stats for a link        |
+| `/api/update.php`         | Update a link                |
+| `/api/delete.php`         | Delete a link                |
+| `/api/verify-key.php`     | Verify your API key          |
+| `/api/deferred.php`       | Handle deferred deep linking |
+
+---
+
+## 🔗 Example Link
+
+A generated short link will look like:
+
+```
 https://pindeep.link/abc123
-It will redirect users smartly based on their device and app install state.
+```
 
-📬 Questions?
-Open issues or reach out at https://pindeep.link.
+This link intelligently redirects users based on their device and whether your app is installed.
+
+---
+
+## 📬 Support
+
+Have questions or issues?
+👉 [Open an issue](https://pindeep.link) or reach out via our website.
+---
