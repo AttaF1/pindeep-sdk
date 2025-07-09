@@ -44,7 +44,7 @@ print(link); // => short deep link
 
 ____________________________________________________________________________________
 
-🤖 Android SDK
+## 🤖 Android SDK
 ✅ Setup
 Add pindeep_android/ as a module in your Android project.
 
@@ -75,7 +75,7 @@ client.createLink(linkData, new Callback() {
 });
 ____________________________________________________________________________________
 
-🍎 iOS SDK (Swift)
+## 🍎 iOS SDK (Swift)
 ✅ Usage
 
 let client = PindeepClient(apiKey: "your_api_key")
